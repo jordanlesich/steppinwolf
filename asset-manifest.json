@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/steppinwolf/static/css/main.677d7612.chunk.css",
+    "main.js": "/steppinwolf/static/js/main.e4ee9b84.chunk.js",
+    "main.js.map": "/steppinwolf/static/js/main.e4ee9b84.chunk.js.map",
+    "runtime-main.js": "/steppinwolf/static/js/runtime-main.fbd09f04.js",
+    "runtime-main.js.map": "/steppinwolf/static/js/runtime-main.fbd09f04.js.map",
+    "static/js/2.8cbc62d1.chunk.js": "/steppinwolf/static/js/2.8cbc62d1.chunk.js",
+    "static/js/2.8cbc62d1.chunk.js.map": "/steppinwolf/static/js/2.8cbc62d1.chunk.js.map",
+    "index.html": "/steppinwolf/index.html",
+    "precache-manifest.649e3b14c585d3d958d37ef35d4eb000.js": "/steppinwolf/precache-manifest.649e3b14c585d3d958d37ef35d4eb000.js",
+    "service-worker.js": "/steppinwolf/service-worker.js",
+    "static/css/main.677d7612.chunk.css.map": "/steppinwolf/static/css/main.677d7612.chunk.css.map",
+    "static/js/2.8cbc62d1.chunk.js.LICENSE.txt": "/steppinwolf/static/js/2.8cbc62d1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fbd09f04.js",
+    "static/js/2.8cbc62d1.chunk.js",
+    "static/css/main.677d7612.chunk.css",
+    "static/js/main.e4ee9b84.chunk.js"
+  ]
+}
