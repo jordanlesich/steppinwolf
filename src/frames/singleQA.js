@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../contexts/DataContext";
 import InputFactory from "../factories/inputFactory";
-import Help from "../components/help";
 import Label from "../components/label";
 import SubText from "../components/subText";
 import styled from "styled-components";
@@ -20,19 +20,20 @@ const StyledQA = styled.form`
   }
 `;
 
-const SingleQA = ({ addData, content, question, subText, input, help, id }) => {
-  const [userInput, setUserInput] = useState("");
-
-  const checkValidation = () => {
-    //run val against a regex match function
+const SingleQA = ({ content, question, subText, input, tag }) => {
+  // const [userInput, setUserInput] = useState("");
+  const { temporaryVals, saveInput, submitData } = useContext(DataContext);
+  const relevantValue = temporaryVals[tag];
+  // const checkValidation = () => {
+  //   //run e against a regex match function
+  // };
+  const handleTyping = (e) => {
+    saveInput(tag, e.target.value);
+    // setCanSubmit(checkValidation(e.target.value));
   };
-  const handleTyping = (val) => {
-    setUserInput(val);
-    checkValidation();
-  };
-  const submitData = () => {
-    addData(userInput);
-  };
+  // const submitData = () => {
+  //   addData(userInput);
+  // };
 
   return (
     <StyledQA onSubmit={submitData}>
@@ -46,9 +47,10 @@ const SingleQA = ({ addData, content, question, subText, input, help, id }) => {
         input={{
           ...input,
           fn: handleTyping,
-          id: question,
+          tag: tag,
           className: "QA-input",
           placeholder: "Type here",
+          value: relevantValue,
         }}
       />
     </StyledQA>

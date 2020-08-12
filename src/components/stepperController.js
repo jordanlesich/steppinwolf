@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../contexts/DataContext";
 import styled from "styled-components";
 import { ChevronLeft, ChevronRight } from "react-feather";
-
 import Help from "../components/help";
 import Button from "../components/button";
 import { getColor, getNeon } from "../helpers/helpers";
@@ -25,14 +25,21 @@ const StyledStepperController = styled.div`
   }
 `;
 
-const StepperController = ({ next, prev, help, steps, step, setSteps }) => {
+const StepperController = ({
+  next,
+  prev,
+  help,
+  tag,
+  cannotMoveForward,
+  cannotMoveBackward,
+}) => {
+  const { temporaryVals, addData, currentStep, currentFrame } = useContext(
+    DataContext
+  );
+
   const completeStep = () => {
-    const id = steps[step].tag;
-    setSteps(
-      steps.map((step) => {
-        return step.tag === id ? { ...step, completed: true } : step;
-      })
-    );
+    addData(tag, temporaryVals[tag]);
+    next();
   };
 
   return (
@@ -42,19 +49,30 @@ const StepperController = ({ next, prev, help, steps, step, setSteps }) => {
       </div>
 
       <div className="controller-nav">
-        <Button height="5rem" content={<ChevronLeft size="5rem" />} fn={prev} />
+        <Button
+          height="5rem"
+          content={<ChevronLeft size="5rem" />}
+          fn={prev}
+          disabled={cannotMoveBackward()}
+        />
         <Button
           height="5rem"
           content={<ChevronRight size="5rem" />}
           fn={next}
+          disabled={cannotMoveForward()}
         />
       </div>
       <Button
         height="5rem"
         width="12rem"
-        content="Ready"
+        content="Submit"
         fontSize={"2rem"}
         fn={completeStep}
+        disabled={
+          temporaryVals[tag] === "" ||
+          currentStep.completed ||
+          currentFrame.type === "message"
+        }
       />
     </StyledStepperController>
   );

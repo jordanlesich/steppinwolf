@@ -14,10 +14,10 @@ const StyledFrame = styled.div`
 const getFrame = ({
   type,
   message,
-  subtext,
+  subText,
   content,
   question,
-  subText,
+
   addData,
   input,
   response,
@@ -26,7 +26,7 @@ const getFrame = ({
   tag,
 }) => {
   const frame = {
-    message: <Message message={message} subText={subtext} content={content} />,
+    message: <Message message={message} subText={subText} content={content} />,
     singleQA: (
       <SingleQA
         addData={addData}
@@ -37,7 +37,7 @@ const getFrame = ({
         response={response}
         validation={validation}
         help={help}
-        id={tag}
+        tag={tag}
       />
     ),
   };

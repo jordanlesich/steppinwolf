@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../contexts/DataContext";
 import styled from "styled-components";
 import { getColor } from "../helpers/helpers";
 
@@ -29,18 +30,21 @@ const StyledTextBox = styled.textarea`
   }
 `;
 
-const TextInput = ({
+const TextBox = ({
   placeholder,
-  label,
+  value,
+  disabled,
   border,
   id,
   fn,
   type,
+  tag,
   name,
   className,
   color,
   bgColor,
 }) => {
+  const { currentStep } = useContext(DataContext);
   id ||
     console.warn(
       "Styled Input requires an id string to match the label with the input "
@@ -48,7 +52,7 @@ const TextInput = ({
 
   return (
     <StyledTextBox
-      id={id}
+      id={tag}
       name={name || id || "name your Input"}
       color={color || "#ececec"}
       border={border || `1px solid ${getColor("border")}`}
@@ -57,9 +61,11 @@ const TextInput = ({
       onBlur={fn}
       placeholder={placeholder || "Placeholder text"}
       type={type}
-      className={className}
+      className={`${className} ${currentStep.completed && "completed"}`}
+      value={value}
+      disabled={currentStep.completed}
     />
   );
 };
 
-export default TextInput;
+export default TextBox;

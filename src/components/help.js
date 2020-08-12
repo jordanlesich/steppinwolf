@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Button from "./button";
 import styled from "styled-components";
-import { HelpCircle } from "react-feather";
 import { getColor } from "../helpers/helpers";
 
 const StyledHelpButton = styled.span`

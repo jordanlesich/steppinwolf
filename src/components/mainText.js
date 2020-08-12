@@ -9,8 +9,8 @@ export const StyledMainText = styled.h2`
   word-break: break-word;
 `;
 
-const MainText = ({ str }) => {
-  return <StyledMainText>{str}</StyledMainText>;
+const MainText = ({ str, className }) => {
+  return <StyledMainText className={className}>{str}</StyledMainText>;
 };
 
 export default MainText;

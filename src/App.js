@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Stepper from "./components/stepper";
-import axios from "axios";
+import { DataProvider } from "./contexts/DataContext";
 
 // const REPO = "https://github.com/jordanlesich/steppinwolftest";
 
@@ -18,9 +18,9 @@ function App() {
   // }, []);
 
   return (
-    <div className="App">
+    <DataProvider>
       <Stepper />
-    </div>
+    </DataProvider>
   );
 }
 

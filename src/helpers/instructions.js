@@ -5,19 +5,39 @@ export const data = [
     frame: [
       {
         type: "message",
-        message: "Welcome to SteppinWolf JS",
+        message: "Welcome to SteppinWolf Demo",
       },
       {
         type: "message",
-        message: "Let's start with an easy question",
+        message: "This is a message frame.",
+        subText: "Each frame is rendered from JSON",
       },
       {
         type: "singleQA",
-        question: "How long has the Portal Project Discord been open?",
-        subText: "Rougly speaking.",
+        question: "This is a simple Question/Answer Frame",
+        tag: "Q0",
+        subText: "Try it out.",
         help:
-          "Type your response into the input then hit the submit button or the 'Enter' key to pass in your response.",
-        response: "Thanks. On to the next question",
+          "This adds additional text to help. It can be expressed in the JSON file",
+        input: {
+          type: "textBox",
+          validation: [
+            { type: "not-empty", response: "Please type in a response" },
+          ],
+        },
+      },
+    ],
+  },
+  {
+    step: 1,
+    tag: "Q1",
+    frame: [
+      {
+        type: "singleQA",
+        tag: "Q1",
+        question: "How much do you love making forms?",
+        subText: "Be honest",
+        help: "Be really, really honest.",
         input: {
           type: "textBox",
           dataLabel: "serverLifespan",
@@ -29,31 +49,58 @@ export const data = [
     ],
   },
   {
-    step: 0,
-    tag: "Q1",
+    step: 2,
+    tag: "Q2",
     frame: [
       {
         type: "message",
-        message: "Welcome to SteppinWolf JS",
-      },
-      {
-        type: "message",
-        message: "Let's start with an easy question",
+        message: "Same Here. No one has time for that shit",
       },
       {
         type: "singleQA",
-        question: "How long has the Portal Project Discord been open?",
-        subText: "Rougly speaking. No need to be specific",
-        help:
-          "Type your response into the input then hit the submit button or the 'Enter' key to pass in your response.",
+        tag: "Q2",
+        question: "What about theories of everything?",
+        subText: "How much do you love those",
+        help: "Be really, really honest.",
         input: {
-          type: "textinput",
+          type: "textBox",
           dataLabel: "serverLifespan",
           validation: [
             { type: "not-empty", response: "Please type in a response" },
           ],
-          response: "Thanks. On to the next question",
         },
+      },
+    ],
+  },
+  {
+    step: 2,
+    tag: "Q3",
+    frame: [
+      {
+        type: "singleQA",
+        tag: "Q3",
+        question: "What about vetting people in Lobby/Introductions?",
+        subText: "Wouldn't it be cool if something did that for you?",
+        help: "Be really, really honest.",
+        input: {
+          type: "textBox",
+          dataLabel: "serverLifespan",
+          validation: [
+            { type: "not-empty", response: "Please type in a response" },
+          ],
+        },
+      },
+      {
+        type: "message",
+        message: "We could use a different version of this for the server",
+      },
+      {
+        type: "message",
+        message: "All we need to do is type JSON",
+      },
+      {
+        type: "message",
+        message: "And just like that you have a stepper form.",
       },
     ],
   },

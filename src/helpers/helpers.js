@@ -47,3 +47,12 @@ export const getNeon = (color, size) => {
    inset 0 0 ${lightGlowInner}vw ${lightBlurInner}vw ${shades[color].light}, 
    inset 0 0 ${whiteGlowInner}vw ${whiteBlurInner}vw ${shades[color].white};`;
 };
+
+export const mapTagsToObject = (data) => {
+  //TODO make functionality for MultiQuestion frames
+  let obj = {};
+  for (let i = 0; i < data.length; i++) {
+    obj[data[i].tag] = "";
+  }
+  return obj;
+};

@@ -26,7 +26,7 @@ const Circle = ({ completed, className, active }) => {
   const [neon, setNeon] = useState(false);
 
   useEffect(() => {
-    if (!neon.hasAnimated && completed) {
+    if (!neon && completed) {
       setNeon(true);
       // const animOutTimer = setTimeout(
       //   () => setNeon({ isNeon: false, hasAnimated: true }),
@@ -34,7 +34,7 @@ const Circle = ({ completed, className, active }) => {
       // );
       // return () => clearTimeout(animOutTimer);
     }
-  }, [completed]);
+  }, [completed, neon]);
 
   return (
     <>

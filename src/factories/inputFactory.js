@@ -2,14 +2,23 @@ import React from "react";
 import TextInput from "../components/textInput";
 import TextBox from "../components/textBox";
 
-const GetInput = ({ value, fn, placeholder, type, id, className }) => {
+const GetInput = ({
+  value,
+  fn,
+  placeholder,
+  type,
+  tag,
+  id,
+  className,
+  disabled,
+}) => {
   const inputs = {
     textInput: (
       <TextInput
         value={value}
         fn={fn}
         placeholder={placeholder}
-        id={id}
+        tag={tag}
         className={className}
       />
     ),
@@ -18,8 +27,9 @@ const GetInput = ({ value, fn, placeholder, type, id, className }) => {
         value={value}
         fn={fn}
         placeholder={placeholder}
-        id={id}
         className={className}
+        disabled={disabled}
+        tag={tag}
       />
     ),
   };

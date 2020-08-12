@@ -18,7 +18,6 @@ const StepperNav = ({ steps }) => {
   return (
     <StyledStepperNav>
       {steps.map((step, index) => {
-        console.log(step.completed);
         return (
           <Circle
             completed={step.completed}
