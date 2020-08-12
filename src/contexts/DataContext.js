@@ -10,7 +10,6 @@ export const DataProvider = ({ children }) => {
       return { ...step, completed: false };
     })
   );
-  //TODO add session storageState
   const [frame, setFrame] = useState(0);
   const [step, setStep] = useState(0);
   const currentStep = steps[step];
