@@ -9,17 +9,14 @@ const StyledQA = styled.form`
   position: relative;
 
   .QA-label {
-    margin-bottom: 4vh;
+    margin-bottom: 3vh;
   }
   .QA-subtext {
-    margin-bottom: 8vh;
+    margin-bottom: 5vh;
+    margin-left: 2rem;
   }
   .QA-input {
-  }
-  .QA-help {
-    position: absolute;
-    top: 0;
-    right: -5rem;
+    margin-left: 2rem;
   }
 `;
 
@@ -44,7 +41,7 @@ const SingleQA = ({ addData, content, question, subText, input, help, id }) => {
         <SubText subText={subText} htmlFor={question} className="QA-subtext" />
       )}
       {content && content}
-      {help && <Help text={help} className="QA-help" />}
+
       <InputFactory
         input={{
           ...input,

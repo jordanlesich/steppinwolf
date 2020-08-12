@@ -4,6 +4,10 @@ import { getColor } from "../helpers/helpers";
 
 export const StyledButton = styled.button`
   padding: 0.25rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: ${(props) => props.radius};
   position: relative;
   outline: none;
@@ -16,24 +20,30 @@ export const StyledButton = styled.button`
   background-color: ${(props) => props.bgColor};
   color: ${(props) => (props.selected ? props.bgColor : props.color)};
   border: ${(props) => props.border};
+  /* box-shadow: 0px 0px 2px 1px ${(props) => props.color}; */
+  :focus{
+    border: 1px solid ${getColor("lightBorder")};
+  }
   :hover {
-    box-shadow: 5px 5px 3px -3px rgba(89, 89, 89, 0.3);
+    background-color: ${getColor("bgHighlight")}
+  }
+  :active{
+    background-color: ${getColor("border")}
   }
   /* :focus {
     box-shadow: 5px 5px 3px -3px rgba(89, 89, 89, 0.3);
   } */
-  .button-bar-icon {
-    height: 40px;
-    width: 40px;
-  }
+
   & > * {
     pointer-events: none;
   }
-  &.open-button {
-    position: absolute;
-    top: 6rem;
-    left: 0;
-    grid-column: 3/4;
+  &.disabled{
+    color: ${getColor("dark")};
+    cursor: default;
+    border: 1px solid ${getColor("dark")};
+    :hover{
+       background-color: ${getColor("bg")}
+    }
   }
 `;
 
@@ -46,23 +56,27 @@ const Button = ({
   height,
   width,
   bgColor,
+  fontSize,
   color,
   border,
   radius,
   selected,
+  disabled,
 }) => {
   return (
     <StyledButton
       onClick={fn}
       value={value}
-      height={height || "2.5rem"}
-      width={width || "7rem"}
-      fontSize={"1.2rem"}
-      color={color || getColor("secondary")}
-      bgColor={bgColor || getColor("white")}
+      height={height}
+      width={width}
+      fontSize={fontSize}
+      color={color || getColor("light")}
+      bgColor={bgColor || getColor("bg")}
       radius={radius || "4px"}
-      border={border || `1px solid ${getColor("lightBorder")}`}
-      className={`${selected && "selected"} ${className}`}
+      border={border || `1px solid ${getColor("border")}`}
+      className={`${selected && "selected"} 
+      ${disabled && "disabled"} 
+      ${className}`}
     >
       {content}
     </StyledButton>

@@ -2,18 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { getColor } from "../helpers/helpers";
 
-const StyledInput = styled.input`
+const StyledTextBox = styled.textarea`
   display: inline-block;
   background-color: ${(props) => props.bgColor};
   box-sizing: border-box;
+  resize: none;
   color: ${(props) => props.color};
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 400;
-  padding-left: 1rem;
-  height: 50px;
-  width: 400px;
-  border: none;
-  border: 1px solid ${getColor("border")};
+  padding: 2rem;
+  padding-left: 2rem;
+  height: 35vh;
+  width: 90%;
+  border: ${(props) => props.border};
   border-radius: 4px;
   transition: 0.2s all;
   font-family: inherit;
@@ -31,6 +32,7 @@ const StyledInput = styled.input`
 const TextInput = ({
   placeholder,
   label,
+  border,
   id,
   fn,
   type,
@@ -45,10 +47,11 @@ const TextInput = ({
     );
 
   return (
-    <StyledInput
+    <StyledTextBox
       id={id}
       name={name || id || "name your Input"}
-      color={color || getColor("light")}
+      color={color || "#ececec"}
+      border={border || `1px solid ${getColor("border")}`}
       bgColor={color || getColor("bg")}
       onChange={fn}
       onBlur={fn}

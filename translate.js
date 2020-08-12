@@ -1,4 +1,6 @@
-export const data = [
+const fs = require("fs");
+
+const data = [
   {
     step: 0,
     tag: "Q0",
@@ -58,3 +60,8 @@ export const data = [
     ],
   },
 ];
+
+const testJSON = JSON.stringify(data);
+console.log(fs.writeFileSync);
+console.log(testJSON);
+fs.writeFileSync("./test.json", testJSON);

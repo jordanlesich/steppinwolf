@@ -2,8 +2,14 @@ import React from "react";
 import Message from "../frames/message";
 import SingleQA from "../frames/singleQA";
 import styled from "styled-components";
+import { getColor } from "../helpers/helpers";
 
-export const StyledFrame = styled.div``;
+const StyledFrame = styled.div`
+  border-top: 1px solid ${getColor("border")};
+  padding: 3vw;
+  margin: 1vw;
+  padding-bottom: 0;
+`;
 
 const getFrame = ({
   type,
@@ -39,7 +45,7 @@ const getFrame = ({
 };
 
 const FrameFactory = ({ frame }) => {
-  return <>{getFrame(frame)}</>;
+  return <StyledFrame>{getFrame(frame)}</StyledFrame>;
 };
 
 export default FrameFactory;

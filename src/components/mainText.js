@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const StyledMainText = styled.h2`
   line-height: 48px;
   font-size: 5rem;
-  font-weight: 400;
+  font-weight: 300;
   overflow-wrap: break-word;
   word-break: break-word;
 `;
